@@ -1,3 +1,14 @@
+//**
+//
+//@author Michael Peterson
+//
+//@section DESCRIPTION
+//
+//This bracket clips into the cube of the side or oct pieces and then holds Blox parts that are on the angled sections.
+//
+//@section TEST
+//
+//Load it as iff it is the bottom bracket of the octlong and see if it is strong enought to suport the wings.
 include <bracketendb.scad>;
 include <tests.scad>;
 module smallrightbrace() {

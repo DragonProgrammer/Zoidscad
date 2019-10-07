@@ -1,3 +1,15 @@
+//**
+//@author Michael Peterson
+//
+//@section DESCRIPTION
+//
+//A base file to construct various bracket from. This mirrors the end of the actual Blox bracket...
+//As long as i have got the size right
+//
+//@section TEST
+//
+//This one should be tested before tests on the other brackets are done. Need to verify that the peg is bit enough to stay in.
+
 include <base file.scad>;
 module bracketendb(){
 cylinder(.2*base,3.75,3.75);
