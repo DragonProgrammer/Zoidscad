@@ -8,11 +8,23 @@
 //
 //@section TEST
 //
-//Hace done one test print. Due to nozzle blocage only got a thin face of Blox printed. Not ennough to do full proof of concept. Hole had to be rounded out due to printer debri.
+//Have done one test print. Due to nozzle blocage only got a thin face of Blox printed. Not ennough to do full proof of concept. Hole had to be rounded out due to printer debri.
 //
+//@section TEST RESULTS
+// 
+//From test of ball and socket
+//Hole size .18in needs to be .205 atleast; peg is .2
+//Blox size .598in/~1.5cm compared to the .582in of the blox's un embelished side
 //@section IMPROVEMENTS
 //
 // Add the texturing to the faces and the corner extensions.
+//
+//@section ALTERNITIVE
+//
+//Three part print. Two outer parts and a 'rubbery' internals
+
+
+
 
 //** 
 //@section DEFINES
@@ -36,10 +48,10 @@ base =15; // enlarged from 5, to allow corect  printing size
 //
 //See if i can get hole diameter to be a factor of base, instead of hard coding value.
 module peghole(){
-    color("Blue")cylinder (18, 2.4, 2.4, true);
+    color("Blue")cylinder (18, 2.5, 2.5, true);
 }
 //peg hole enlarged, used to be 6, .8, .8)
-
+//After test print changed from 2.4 to 2.5, need to add slightly more if depending on use ruber inards.
 
 //**
 //@section DESCRIPTION
@@ -67,6 +79,7 @@ cylinder (base, 9.75, 9.75, true);
 //@section DESCRIPTION
 //
 //This creates the Bloxes cube shape and rounded edges.
+
 module block(){
     intersection(){
 edge();
@@ -74,6 +87,7 @@ rotate([90,0,0]) edge();
 rotate([0, 90, 0]) edge();
 }
 }
+
 
 //**
 //@section DESCRIPTION
