@@ -4,11 +4,14 @@
 //
 //@section DESCRIPTION
 //
-//The base file all the others are biult from. THis creates the basic Blox Piece, a cube with cylindrical holes going down its central axises.
+//This base file tries to replicate the actual block by creating a 3 part block
 //
+
+//@section CHANGES
+// 
+//It is noted that the Blox edges are angled not round. Made blox be a cube from cyinder.
 //@section TEST
 //
-//Have done one test print. Due to nozzle blocage only got a thin face of Blox printed. Not ennough to do full proof of concept. Hole had to be rounded out due to printer debri.
 //
 //@section TEST RESULTS
 // 
@@ -20,8 +23,7 @@
 // Add the texturing to the faces and the corner extensions.
 //
 //@section ALTERNITIVE
-//
-//Three part print. Two outer parts and a 'rubbery' internals
+//this is the atlernitive.
   
 
 
@@ -33,26 +35,37 @@
 //fn =30 makes the cylinders for the holes be quite round.
 //base defines a set size of each BLox face.
 $fn =30;
-base =15; // enlarged from 5, to allow corect  printing size
-
+base =15;// enlarged from 5, to allow corect  printing size
+Peg =2.5;
 //**
 //@section DESCRIPTION
 //
 //This function creates a cylinder, and colors it blue. This is the base used for all future pegs and holes in Blox.
 //
-//@section TESTS
-//
-// Have done one test print. THin wafer shoed hole to probably be right size. Printing debre needed to be shaved off. Future verification needed.
-//
-//@section IMPROVEMENTS
-//
-//See if i can get hole diameter to be a factor of base, instead of hard coding value.
 module peghole(){
     color("Blue")cylinder (18, 2.5, 2.5, true);
 }
-//peg hole enlarged, used to be 6, .8, .8)
-//After test print changed from 2.4 to 2.5, need to add slightly more if depending on use ruber inards.
 
+module rubber(){
+    color("Red")
+    cylinder (14, 2.8, 2.8, true);
+}
+module spacer(){
+cylinder(13.8, 3.5,3.5, true);
+}    
+module give(){
+    spacer();
+rotate ([90, 0, 0]) 
+    spacer();
+rotate ([0, 90, 0]) spacer();
+}
+
+module tube()
+difference(){
+rubber();
+translate ([0, 0, 2]) peg();
+    translate([0,0,-7.5]) peg();
+}
 //**
 //@section DESCRIPTION
 //
@@ -66,14 +79,11 @@ module peg(){
 //@section DESCRIPTION
 //
 // A cylinder that gives the proper edges to the Blox cube.
-//
-//@section TEST
-//
-//Test print showed that Blox face should be the right size. Print was to thin to determine if edges had the right curve.
+
 module edge(){
 cylinder (base, 9.75, 9.75, true);
 }
-//enlarged, used to be base, 3.25,3.25
+
 
 //**
 //@section DESCRIPTION
@@ -89,6 +99,12 @@ rotate([0, 90, 0]) edge();
 }
 
 
+module core(){
+    tube();
+rotate ([90, 0, 0]) tube();
+rotate ([0, 90, 0]) tube();
+}
+   // core();
 //**
 //@section DESCRIPTION
 //
@@ -101,4 +117,17 @@ rotate ([90, 0, 0]) peghole();
 rotate ([0, 90, 0]) peghole();
 }
 }
+
+module half(){
+    difference(){
+        blox();
+        translate([0, 0,4]) cube([16, 16, 8], true);
+        give();
+    }
+}
+half();
+core();
 //unembeleshed blox cube
+//%blox();
+//peghole();
+//rubber();
