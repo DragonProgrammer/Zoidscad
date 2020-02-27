@@ -11,14 +11,26 @@
 //A good peice to test before making the longer ones. Can test the Brackets with this piece too.
 //Might want to print 2 to see how well the brackets work with Buster Eagle wings.
 
-use <corner.scad>;
-include <base file.scad>;
+use <corner2.scad>;
+include <base file2.scad>;
 //base=15;
-module side(){
-    blox();
-    translate([0,0,base])corner();
-translate([0,0,-base]) rotate([0,90,0]) corner();
+module halfside(){
+    difference(){
+        halfbase();
+Editspacer(18);
+    }
+}
+
+module sidecore(){
+    Edittube(18);
+    core();
+    translate([0,0,base])tricore();
+translate([0,0,-base]) rotate([0,90,0]) tricore();
+}
+module halfbase(){
+    half();
+    translate([0,0,base])cornerhalf();
+translate([0,0,-base]) rotate([0,90,0]) cornerhalf();
 }
 // Pentagram side of octagon, can be own piece
-
 

@@ -10,6 +10,8 @@
 //@section CHANGES
 // 
 //It is noted that the Blox edges are angled not round. Made blox be a cube from cyinder.
+// 2/27/20: Noted that file corner()  would need a different core() then this.
+// Added editing capabilities to many components to facilitate this.
 //@section TEST
 //
 //
@@ -46,26 +48,104 @@ module peghole(){
     color("Blue")cylinder (18, 2.5, 2.5, true);
 }
 
+module Editpeghole(x){
+    color("Blue")
+    cylinder(x,2.5,2.5, true);
+}
+//**
+//@section DESCRIPTION
+//
+// A cylinder for use as bulding block for interior rubber tube
+// 1 mm shorter then blox to alow cover over end of ruber by blox
+//
+
 module rubber(){
     color("Red")
     cylinder (14, 2.8, 2.8, true);
 }
+//**
+//@section DESCRIPTION
+//
+// rubber() with a variable legth.
+//
+module Editrubber(x){
+    color("Red")
+    cylinder (x, 2.8, 2.8, true);
+}
+//**
+//@section DESCRIPTION
+//
+// Cylinder for creating the void for rubber to sit an and allow peg movement
+// 1 shorter then blox width to alow cover over ruber and centering of ruber 
+//
 module spacer(){
-cylinder(13.8, 3.5,3.5, true);
-}    
+cylinder(14, 3.5,3.5, true);
+}
+//**
+//@section DESCRIPTION
+//
+// Cylinder for creating the void for rubber to sit and allow peg movement
+//  removed 1.2 shortening, hardcode per use
+//
+module cover(x){
+translate([x+.1,0,0])cube([1,15,15], true);
+}
+module sides(){
+    y = 7.5;
+    cover(y);
+
+rotate([0,90,0])cover(y);
+rotate([0,180,0])cover(y);
+rotate([0,-90,0])cover(y);
+rotate([0,0,-90])cover(y);
+rotate([0,0,90])cover(y);
+}
+
+
+module Editspacer(x){
+cylinder(x, 3.5,3.5, true);
+}
+
+//**
+//@section DESCRIPTION
+//
+// Spacer on the 3 axis
+//
 module give(){
     spacer();
 rotate ([90, 0, 0]) 
     spacer();
 rotate ([0, 90, 0]) spacer();
 }
-
-module tube()
+//**
+//@section DESCRIPTION
+//
+// A 2 ended rubber tube for peg insertion. Not al the way hollow to allow conetion between axis.
+//
+module tube() {
 difference(){
 rubber();
 translate ([0, 0, 2]) peg();
     translate([0,0,-7.5]) peg();
 }
+}
+
+//@section DESCRIPTION
+//
+// a cylinder the width of peg to allow Edittube() to be at all legths
+module tubecenter(x){
+ cylinder (x, 2.4, 2.4, true);
+    //true added to open bottom (-Z)of tube, 
+}   
+
+module Edittube(x) {
+difference(){
+Editrubber(x);
+    tubecenter(x+.5);
+//.5 added to remove tip (+Z) of tube being covered by layer casuse buy tubecenter being trued
+}
+}
+
 //**
 //@section DESCRIPTION
 //
@@ -73,6 +153,16 @@ translate ([0, 0, 2]) peg();
 //
 module peg(){
     cylinder (6, 2.4, 2.4);
+}
+
+//**
+//@section DESCRIPTION
+//
+// A peg with a variable legth.
+//
+
+module Editpeg(x) {
+    cylinder(x, 2.4, 2.4, true);
 }
 
 //**
@@ -115,19 +205,24 @@ block();
    peghole();
 rotate ([90, 0, 0]) peghole();
 rotate ([0, 90, 0]) peghole();
+    give();
 }
 }
 
 module half(){
     difference(){
         blox();
-        translate([0, 0,4]) cube([16, 16, 8], true);
-        give();
+        rotate([-90,0,0])translate([0, 0,4]) cube([16, 16, 8], true);
+    
     }
 }
-half();
+module whole(){
+    half();
+    rotate([0,180,0])half();
+   // core();
+}
 core();
-//unembeleshed blox cube
-//%blox();
+half();
+//whole();
 //peghole();
 //rubber();

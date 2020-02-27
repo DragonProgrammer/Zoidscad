@@ -17,6 +17,19 @@
 
 include <3long.scad>;
 include <side.scad>;
+module halfoct(){
+difference(){
+    union(){
+        half3long();
+translate([base,0,0]) halfside();
+translate([-base,0,0]) rotate([0,180,0]) halfside();
+    }
+    rotate([0,90,0]) Editspacer(18);
+    translate([0,0,base])rotate([0,90,0]) Editspacer(18);
+    translate([0,0,-base])rotate([0,90,0]) Editspacer(18);
+}
+}
+
 module oct() {
 3long();
 translate([base,0,0]) side();

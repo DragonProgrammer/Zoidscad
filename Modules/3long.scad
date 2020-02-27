@@ -12,10 +12,24 @@
 //
 // Change the surface paturn and remove the internal cornaer extensions to reflect a longer one piece Blox, instead of making it look like 3 fused BLox.
 
-include <base file.scad>;
+include <base file2.scad>;
+module half3long(){
+    difference(){
+        union(){
+    half();
+    translate([0,0,base]) half();
+    translate([0,0,-base]) half();}
+    Editspacer(18);
+}    
+}
+module core3long(){
+    core();
+    translate([0,0,base]) core();
+    translate([0,0,-base]) core();
+    Edittube(18);    
+}
 module 3long() {
-    blox();
-    translate([0,0,base]) blox();
-    translate([0,0,-base]) blox();
+    half3long();
+    rotate([0,0,180]) half3long();
 }
 // a peice of 3 conected blox
