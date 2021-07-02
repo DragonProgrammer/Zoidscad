@@ -16,13 +16,13 @@
 //Unsure how the expanded corners on a normal blox would work agains the angled edge. Replicate those features and surface paterns on the face.
 
 use <base file2.scad>;
-module triangleblock(){difference(){
-    block();
-   translate([-9,-9,9])rotate([0,45,0])
-cube([24,18
-   ,12]) color("Red");
+module triangleblock(){
+    difference(){
+        block();
+        translate([-9,-9,9])rotate([0,45,0])cube([24,18,12]);
 }
 }
+
 module corner(){
   
     difference(){triangleblock();
@@ -38,8 +38,8 @@ corner();
 translate([ -10, 0, -10]) cube([20,10,20]);
 }
 }
-translate([15,0,0]) whole();
-corner();
+//translate([15,0,0]) whole();
+//corner();
 module tritube(){
     rotate([0,45,0])
 translate([0,0,-3.5]) Edittube(8);
@@ -60,7 +60,7 @@ module trispacer(){
 difference(){
     spacers();
     sides();
-     translate([-9,-9,8])rotate([0,45,0])cube([24,18,12]) color("Red");
+     translate([-9,-9,8])rotate([0,45,0])cube([24,18,12]);
 }
 }
 module tricore(){
@@ -69,8 +69,9 @@ module tricore(){
      rotate([0,45,0])
 translate([0,0,-3.5]) Editpeg(9);
   sides();
-    translate([-9,-9,8])rotate([0,45,0])cube([24,18,12]) color("Red");
+    translate([-9,-9,8])rotate([0,45,0])cube([24,18,12]) ;
 }
 }
 //tricore();
 //tube();
+cornerhalf();

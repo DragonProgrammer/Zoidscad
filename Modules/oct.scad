@@ -32,6 +32,18 @@ translate([-base,0,0]) rotate([0,180,0]) halfside();
 
 module oct() {
 3long();
-translate([base,0,0]) side();
-translate([-base,0,0]) rotate([0,180,0]) side();
+translate([base,0,0]) halfside();
+translate([-base,0,0]) rotate([0,180,0]) halfside();
+translate([-base,0,0]) rotate([180,180,0]) halfside();
+    translate([base,0,0]) rotate([180,0,0]) halfside();
+
 }
+module octside(){
+difference(){oct();
+cube([30,20,15], true);
+rotate([0,90,0])cube([30,20,15], true);
+rotate([0,45,0])cube([30,20,15], true);
+    rotate([0,-45,0])cube([30,20,15], true);
+}
+}
+//octside();

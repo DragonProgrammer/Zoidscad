@@ -32,5 +32,7 @@ module halfbase(){
     translate([0,0,base])cornerhalf();
 translate([0,0,-base]) rotate([0,90,0]) cornerhalf();
 }
+//halfbase();
+//sidecore();
 // Pentagram side of octagon, can be own piece
 

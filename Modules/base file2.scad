@@ -72,6 +72,23 @@ module Editrubber(x){
     color("Red")
     cylinder (x, 2.8, 2.8, true);
 }
+
+//**
+//@section DESCRIPTION
+//
+//This function makes a hollow tube
+//  x long
+//  y inner radius
+//  z wall width
+//
+module Editpipe(x,y,z){
+    difference(){
+cylinder(x, y+z, y+z, true);
+cylinder(x+1, y, y, true);
+    }
+}
+
+
 //**
 //@section DESCRIPTION
 //
@@ -125,8 +142,8 @@ rotate ([0, 90, 0]) spacer();
 module tube() {
 difference(){
 rubber();
-translate ([0, 0, 2]) peg();
-    translate([0,0,-7.5]) peg();
+color("Purple")translate ([0, 0, 2]) peg();
+    color("Purple")translate([0,0,-7.5]) peg();
 }
 }
 
@@ -218,11 +235,56 @@ module half(){
 }
 module whole(){
     half();
-    rotate([0,180,0])half();
-   // core();
+    rotate([0,0,180])half();
+    //core();
 }
+// set up a vies of object
+
+// souced label funtion from user Parkinbot at http://forum.openscad.org/Display-label-options-td25514.html
+
+
+
+
+module label (text = "label", textsize = 3, pos=[0,0,0], dpos=[10,0,10],
+linesize = .2, length =20, anglexyz=[0,45,90])
+{
+  p1 = pos + dpos;
+  //line(pos, p1, linesize);
+  translate(p1)rotate([90,0,$vpr[2]])text(text, size = textsize);
+}
+
+module labeledBlox(){
+label("Case Halfs", pos = [5, 10, 20]);
+label("Assembled", pos = [-30, 10, 20]);
+label("With Insert", pos = [40, 10, -15]);
+label("Insert", pos = [5, 10, -38]);
+
+
+translate([base, 0, -.5* base]){
 core();
 half();
-//whole();
+}
+translate([.5*-base, 0, -.5* base])rotate([0, 0, 90]){
+core();
+half();
+}
+translate([-2*base, 0, -.5* base]){whole(); core();}
+translate([base, 0, base]) half();
+translate([.5*-base, 0, base]) rotate([0, 0, 90]) half();
+translate([-2*base, 0, base]) whole();
+
+translate([.5*-base, 0, 2*-base]) core();
+}
+module peggedHalf(){
+translate([.35*base,0, .35*base])cube([1,3,1], true);
+translate([.35*-base,0, .35*-base])cube([1,3,1], true);
+difference(){
+half();
+translate([.35*-base,0, .35*base])cube([1.5,3.5,1.5], true); // at 1.1 and 3.1 hole too small when printed
+translate([.35*base,0, .35*-base])cube([1.5,3.5,1.5], true);
+}
+}
+//peggedHalf();
+//labeledBlox();
 //peghole();
 //rubber();
