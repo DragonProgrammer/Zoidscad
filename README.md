@@ -48,10 +48,11 @@ After a test print of a ball and socet blox it was determined that the parts nee
   Example: corner.scad --> corner2.scad.  Others like side.scad were edited as the old name.
 
 ----------------------------------------------------------------------------------------------------------------------------
+
 FILES NOT FROM CUSTUM PROJECT
   sphere_blox.scad & multi_axis_peg.scad - these 2 where recreations of existing parts that came only a set of six specialy released models.--IMAGE-- --IMAGE--
   stem_attempt_1.scad - this file is me trying to recreate the twisting stem from the flower model zoid. The one released with the model was 5 parts glued together, and had a habit of poping apart. This is a cad file for making it as one part. --IMAGE--
-  thin_blox - this is piece is a half width BLOX for custom projects. --IMAGE--
+  thin_blox - this is piece is a half width BLOX for custom projects. --IMAGE--**
 -------------------------------------------------------------------
 
 These files, with the exception of ballnsocket.scad, never got printed as a lack of income and the cost of resin to experiment on getting the rubber for the internals.
