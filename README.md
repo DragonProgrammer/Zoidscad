@@ -51,7 +51,9 @@ After a test print of a ball and socet blox it was determined that the parts nee
 The following files are not from the custum project:
 
   sphere_blox.scad & multi_axis_peg.scad - these two are recreations of the existing parts that were onkly availabe from six specaily released models. --IMAGE-- --IMAGE--
+  
   stem_attempt_one.scad - one of these speacial models was of a flower. Once the end caps are added this would recreate the curved stem and straight stem as one part insted of the 5 baddly glued parts they are in the kit. --IMAGE--
+  
   thin_blox - this is a half width blox to use for custome ideas; such as putting a bank of guns closer together or not needing an entire blox to attach legs.
 
 -------------------------------------------------------------------
