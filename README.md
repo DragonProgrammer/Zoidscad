@@ -36,9 +36,8 @@ Many of the rest of the files are me trying to figure out how wanted the parts t
 
   ballnsocket.scad - this is the one piece ball and socket for making the tail. Takara made a set of parts that atach to blox to do the same thing, but it would be prohibitivvely expensive to do the same thing these do. --IMAGE--
   
-  
+--^-- These files are broke due to side.scad not having function side().  
 
---^--THESE FILES ARE BROKEN. side.scad no longer has the function side() that these files are calling.
 ------------------------------------------------------------------------------------------------------------
 
 The first group of files is a version control where i tried to get everything into one file. After discovering SCAD's include function I set about making each part intdividualy and building up from there. The old files are included for referance but will not be discribed as they have now been depricated.
@@ -48,10 +47,11 @@ In creating the module most of the code was tcoppy pasted from blox7_capsoct.sca
 After a test print of a ball and socet blox it was determined that the parts needed a rubber core so Each part was split in half and the interior modified.
   Example: corner.scad --> corner2.scad.  Others like side.scad were edited as the old name.
 
- 
-
 ----------------------------------------------------------------------------------------------------------------------------
 FILES NOT FROM CUSTUM PROJECT
   sphere_blox.scad & multi_axis_peg.scad - these 2 where recreations of existing parts that came only a set of six specialy released models.--IMAGE-- --IMAGE--
   stem_attempt_1.scad - this file is me trying to recreate the twisting stem from the flower model zoid. The one released with the model was 5 parts glued together, and had a habit of poping apart. This is a cad file for making it as one part. --IMAGE--
   thin_blox - this is piece is a half width BLOX for custom projects. --IMAGE--
+-------------------------------------------------------------------
+
+These files, with the exception of ballnsocket.scad, never got printed as a lack of income and the cost of resin to experiment on getting the rubber for the internals.
