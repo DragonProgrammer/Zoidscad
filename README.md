@@ -11,6 +11,10 @@ Adding a corner onto each side of a normal BLOX creates a part that fit a stack 
 Many of the rest of the files are me trying to figure out how wanted the parts to go. 
 
   Side.scad would create a pice for angled atackments and could be used to hook onto other parts.
+
+  corner2.scad - the corner piece set up for half printing.
+
+  ![My_image](Modules/corner2.png)
   
   hexlong.scad - six side parts positioned in a staked hexagon. --^--
   
@@ -24,17 +28,24 @@ Many of the rest of the files are me trying to figure out how wanted the parts t
   
   octfilled.scad - this is an idea to create the oct longe piece in multiple parts and a method for adding the rubber. It also adds pegs so that the parts click together instead of needing glue. It allow for the creation of a cap pice and a hollow octogonal ring. --IMAGE--
   
-  octstack.scad - this is a modified implementation of octfilled. It makes the octagonal parts split along the BLOX centers instead of alon the BLOX edges. It also has a modified version of the rubber inserts.--IMAGE--
+  octstack.scad - this is a modified implementation of octfilled. It makes the octagonal parts split along the BLOX centers instead of alon the BLOX edges. It also has a modified version of the rubber inserts.
+
+  ![My_image](Modules/octstack.png)
   
   octStackCup.scad - this file is a rendition of a different way of doing the rubber for the blox. This assumes i can find a rubberized paint instead of printing out rubber inserts. --IMAGE-- 
+  ![My_image](Modules/octoStackCup.png)
   
   smallrightbrace.scad - this is a right angled bracket for conected blox together. Takara made one of there own but the top/bottom points of the hex part would get in the way of using it, so the new one is beveled at the corner. 
+
+![My_image](Modules/smallrightbrace.png)
   
   acutebraket.scad - this is the 45 degree brack for securing the stacked wings on top of each other. There is no equivalent made by Takara. --IMAGE--
+  ![My_image](Modules/acutebraket.png)
   
-  tests.scad - this file is a postioning test to see where the wings would attach to the shapes. --IMAGE--
+  tests.scad - this file is a postioning test to see where the wings would attach to the shapes. 
 
-  ballnsocket.scad - this is the one piece ball and socket for making the tail. Takara made a set of parts that atach to blox to do the same thing, but it would be prohibitivvely expensive to do the same thing these do. --IMAGE--
+  ballnsocket.scad - this is the one piece ball and socket for making the tail. Takara made a set of parts that atach to blox to do the same thing, but it would be prohibitivvely expensive to do the same thing these do. 
+![My_image](Modules/ballnsocket.png)
   
 --^-- These files are broke due to side.scad not having function side().  
 
