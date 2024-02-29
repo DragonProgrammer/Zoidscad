@@ -59,3 +59,5 @@ The following files are not from the custum project:
 -------------------------------------------------------------------
 
 These files, with the exception of ballnsocket.scad, never got printed as a lack of income and the cost of resin to experiment on getting the rubber for the internals.
+
+A large project based on the anime's gravity cannon (Zoids Chaotic Century Episodes 62 - 67) can be shown on request. Private project, not displayed to the public.
